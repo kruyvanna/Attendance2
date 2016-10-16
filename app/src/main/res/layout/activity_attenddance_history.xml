@@ -15,4 +15,47 @@
 
     </android.support.v7.widget.RecyclerView>
 
-</RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:visibility="invisible"
+        android:id="@+id/statusDetailLayout"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        >
+
+        <TextView
+            android:text="Position: "
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:id="@+id/statusDetailView"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <TextView
+            android:text="X"
+            android:textSize="22sp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:id="@+id/statusClose"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>

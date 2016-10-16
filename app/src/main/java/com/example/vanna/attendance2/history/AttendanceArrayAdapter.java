@@ -1,7 +1,10 @@
 package com.example.vanna.attendance2.history;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,17 @@ import com.example.vanna.attendance2.R;
  */
 
 public class AttendanceArrayAdapter extends RecyclerView.Adapter<AttendanceArrayAdapter.ViewHolder> {
-    Attendance[] data;
+    private Attendance[] data;
+    private Activity activity;
+    private AttendanceAdapterListener attendanceAdapterListener;
 
-    public AttendanceArrayAdapter(Attendance[] data) {
+    public void setAttendanceAdapterListener(AttendanceAdapterListener attendanceAdapterListener){
+        this.attendanceAdapterListener = attendanceAdapterListener;
+    }
+
+
+    public AttendanceArrayAdapter(Activity parent_activity, Attendance[] data) {
+        this.activity = parent_activity;
         this.data = data;
     }
 
@@ -28,6 +39,19 @@ public class AttendanceArrayAdapter extends RecyclerView.Adapter<AttendanceArray
         public ViewHolder(View itemView) {
             super(itemView);
             statusView = (TextView) itemView.findViewById(R.id.statusView);
+
+            Typeface typeface = Typeface.createFromAsset(activity.getAssets(), "fonts/icomoon.ttf");
+            statusView.setTypeface(typeface);
+            statusView.setText("\ue901");
+
+            statusView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("Adapter: ", "position: " + getAdapterPosition());
+                    attendanceAdapterListener.onStatusClick(getAdapterPosition());
+                }
+            });
+
             dateView = (TextView) itemView.findViewById(R.id.dateView);
             timeView = (TextView) itemView.findViewById(R.id.timeView);
         }

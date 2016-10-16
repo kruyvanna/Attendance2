@@ -16,6 +16,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        DBConnector dbConnector = DBConnector.getDBInstance(getApplicationContext());
+        dbConnector.displayAllStatus();
+
         TextView facebookButton = (TextView) findViewById(R.id.facebookButton);
 
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/icomoon.ttf");
