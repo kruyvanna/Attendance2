@@ -27,5 +27,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     testCompile 'junit:junit:4.12'
 }
